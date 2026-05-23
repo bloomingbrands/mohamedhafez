@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "Full Stack JavaScript Developer specializing in React, Next.js, Node.js, AI integrations, and Hedera blockchain. 8+ years enterprise systems engineering.",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Mohamed Hafez — Full Stack Developer",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     description:
       "Full Stack JavaScript Developer specializing in React, Next.js, Node.js, AI integrations, and Hedera blockchain.",
     creator: "@jamstack_blocks",
-    images: ["/opengraph-image"],
+    images: ["https://beingmohamedhafez.com/opengraph-image.png"],
   },
   robots: {
     index: true,
