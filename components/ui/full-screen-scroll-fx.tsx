@@ -1,11 +1,5 @@
 "use client";
 
-// styled-jsx type support
-declare module "react" {
-  interface StyleHTMLAttributes<_T> {
-    jsx?: boolean;
-  }
-}
 
 import React, {
   CSSProperties,
