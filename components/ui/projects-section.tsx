@@ -8,8 +8,8 @@ const projects = [
   {
     index: "01",
     name: "On Target Brands",
-    domain: "ontargetbrands.com",
-    url: "https://ontargetbrands.com",
+    domain: "ontargeterp.netlify.app",
+    url: "https://ontargeterp.netlify.app",
     description:
       "AI-powered ERP platform — orders, invoices, and transactions anchored to the Hedera blockchain. Immutable records. No manipulation. Integrates OpenAI, Anthropic, and DeepSeek for intelligent front-store generation.",
     tags: ["Next.js", "Prisma", "MySQL", "Hedera", "OpenAI", "Anthropic", "DeepSeek", "JWT"],
@@ -37,6 +37,16 @@ const projects = [
   },
   {
     index: "04",
+    name: "Prestige Worldwide Limos",
+    domain: "glittering-biscuit-572c74.netlify.app",
+    url: "https://glittering-biscuit-572c74.netlify.app",
+    description:
+      "Luxury limousine company website — elegant design built to convert visitors into bookings. Fast, responsive, and built to reflect the premium brand experience.",
+    tags: ["Next.js", "TailwindCSS", "Framer Motion"],
+    status: "live" as const,
+  },
+  {
+    index: "05",
     name: "Sword Circle Pen",
     domain: "swordcirclepen.com",
     url: "https://swordcirclepen.com",
