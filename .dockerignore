@@ -1,0 +1,21 @@
+.git
+.gitignore
+.github
+
+# local env files — never bake secrets into the image
+.env
+.env.local
+.env.*.local
+
+# build artefacts (builder stage starts fresh)
+.next
+node_modules
+
+# dev / docs only
+*.md
+blog-scrapped
+scripts
+design-v3-guideline.json
+
+Dockerfile
+.dockerignore
