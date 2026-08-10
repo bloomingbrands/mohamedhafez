@@ -167,12 +167,20 @@ export default function FeatureSection() {
               <Link href="mailto:mohamedhafez@outlook.com">Hire Me</Link>
             </Button>
             <a
-              href="/resume.pdf"
+              href="/resume-fullstack.pdf"
               download
               className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-2 text-sm font-medium text-white/60 transition-all duration-200 hover:border-white/40 hover:bg-white/5 hover:text-white"
             >
               <Download className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
-              Download Resume
+              Full-Stack Developer
+            </a>
+            <a
+              href="/resume-systems.pdf"
+              download
+              className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-2 text-sm font-medium text-white/60 transition-all duration-200 hover:border-white/40 hover:bg-white/5 hover:text-white"
+            >
+              <Download className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
+              Systems Engineer
             </a>
           </div>
         </motion.div>

@@ -21,19 +21,29 @@ export const FlipLinks = () => {
         </FlipLink>
       ))}
 
-      {/* Resume Download */}
+      {/* Resume Downloads */}
       <div className="mt-12 flex flex-col items-center gap-4">
         <div className="h-px w-12 bg-white/10" />
-        <a
-          href="/resume.pdf"
-          download
-          className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/40 hover:text-white hover:bg-white/5"
-        >
-          <Download className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
-          Download Resume
-        </a>
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+          <a
+            href="/resume-fullstack.pdf"
+            download
+            className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/40 hover:text-white hover:bg-white/5"
+          >
+            <Download className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+            Full-Stack Developer
+          </a>
+          <a
+            href="/resume-systems.pdf"
+            download
+            className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/40 hover:text-white hover:bg-white/5"
+          >
+            <Download className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+            Systems Engineer
+          </a>
+        </div>
         <p className="text-[10px] text-white/20 font-mono">
-          PDF &middot; Last updated 2025
+          PDF &middot; Updated Aug 2026
         </p>
       </div>
     </section>

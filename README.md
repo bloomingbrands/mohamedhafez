@@ -29,7 +29,7 @@ This portfolio highlights:
 - **Journey** — Interactive timeline with progressive scroll-driven line illumination
 - **Projects** — Selected live work including [ontargetbrands.com](https://ontargetbrands.com)
 - **Skills** — Full toolbox with AI and blockchain callouts
-- **Contact** — Social links and resume download
+- **Contact** — Social links and dual resume downloads (Full-Stack + Systems Engineer)
 
 ## Contact
 
