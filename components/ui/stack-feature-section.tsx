@@ -22,7 +22,12 @@ const tools = [
   { name: "AWS",            category: "DevOps"       },
   { name: "Azure",          category: "DevOps"       },
   { name: "Docker",         category: "DevOps"       },
+  { name: "Coolify",        category: "DevOps"       },
   { name: "Vercel",         category: "DevOps"       },
+  { name: "Intune",         category: "Systems"      },
+  { name: "Entra ID",       category: "Systems"      },
+  { name: "Tanium",         category: "Systems"      },
+  { name: "CrowdStrike",    category: "Systems"      },
   { name: "OpenAI",         category: "AI"           },
   { name: "Anthropic",      category: "AI"           },
   { name: "DeepSeek",       category: "AI"           },
@@ -42,6 +47,7 @@ const categories = [
   "Backend",
   "Database",
   "DevOps",
+  "Systems",
   "AI",
   "Blockchain",
   "Auth",
@@ -98,16 +104,16 @@ export default function FeatureSection() {
         >
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
             <p className="text-[10px] font-mono uppercase tracking-widest text-white/30 mb-2">AI Integrations</p>
-            <h4 className="text-lg font-bold text-white mb-2">Shipped AI agents to production</h4>
+            <h4 className="text-lg font-bold text-white mb-2">AI agents in production</h4>
             <p className="text-sm leading-relaxed text-white/45">
-              Built real-time chat agents powered by OpenAI, Anthropic, and DeepSeek — with custom prompts, conversation memory, contextual routing, and full UI/UX integration. Not demos. Live, client-facing features.
+              OpenAI, Anthropic, and DeepSeek chat agents with custom prompts, memory, and routing — live on client sites, not demos.
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
             <p className="text-[10px] font-mono uppercase tracking-widest text-white/30 mb-2">Blockchain</p>
             <h4 className="text-lg font-bold text-white mb-2">Immutable records on Hedera</h4>
             <p className="text-sm leading-relaxed text-white/45">
-              Integrated Hedera public distributed ledger into a production ERP platform — anchoring business transactions to an immutable, tamper-proof chain. A real-world breakthrough into what blockchain actually enables.
+              Anchored ERP transactions to Hedera so business records stay tamper-evident — practical ledger use, not hype.
             </p>
           </div>
         </motion.div>
@@ -154,10 +160,10 @@ export default function FeatureSection() {
             Open to opportunities
           </p>
           <h3 className="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-            Available for freelance, consulting, full-time, or creative collaborations.
+            Full-stack product work. Systems engineering when it has to run.
           </h3>
-          <p className="max-w-md text-sm leading-relaxed text-white/40">
-            Looking for a developer who brings infrastructure depth to the frontend — and ships AI agents, blockchain integrations, and production-grade web apps? Let&apos;s talk.
+          <p className="max-w-lg text-sm leading-relaxed text-white/40">
+            Hiring for a full-stack role or a systems engineer who can also ship the app? I bridge both — React/Next.js products, AI agents, and the identity, cloud, and endpoint work that keeps them reliable. Freelance, contract, or full-time.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Button

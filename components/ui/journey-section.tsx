@@ -32,13 +32,13 @@ const milestones = [
     year: "2024",
     title: "Builder Mode",
     description:
-      "Launched ontargetbrands.com — an AI-powered ERP anchored to the Hedera blockchain for immutable, tamper-proof business records. Real clients. Real production.",
+      "Launched On Target Brands — an AI-powered ERP anchored to Hedera for immutable business records. Client sites, SaaS tooling, and real production traffic.",
   },
   {
-    year: "2025",
+    year: "2026",
     title: "Now",
     description:
-      "Senior contracts by day, builder by night. Crafting production-grade web experiences at the intersection of infrastructure depth and frontend craft.",
+      "Founder at Blooming Brands Inc. Full-stack product work by day, systems and cloud ownership end to end — from Coolify and DNS to identity, CI/CD, and uptime.",
   },
 ];
 

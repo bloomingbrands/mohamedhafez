@@ -143,9 +143,9 @@ const PrismaHero = () => {
                 transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="text-white/70 text-xs leading-[1.5] sm:text-sm md:text-base"
               >
-                Frontend developer & UI designer crafting thoughtful digital
-                experiences. Focused on clean code, bold visuals, and interfaces
-                that feel as good as they look.
+                Full-stack developer and systems engineer. I ship production web
+                apps with React and Next.js — and I own the servers, identity,
+                and cloud behind them.
               </motion.p>
 
               <motion.a
@@ -166,7 +166,12 @@ const PrismaHero = () => {
 
             {/* Full-width display name */}
             <h1>
-              <ShutterName text="Mohamed" />
+              <span className="sr-only">
+                Mohamed Hafez — Full-Stack Developer and Systems Engineer
+              </span>
+              <span aria-hidden="true">
+                <ShutterName text="Mohamed" />
+              </span>
             </h1>
 
           </div>

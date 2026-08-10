@@ -12,16 +12,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteTitle = "Mohamed Hafez — Full-Stack Developer & Systems Engineer";
+const siteDescription =
+  "Mohamed Hafez is a full-stack developer and systems engineer in Lowell, MA. React, Next.js, Node.js, TypeScript, AI agents, plus enterprise identity, cloud, and endpoint engineering.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://beingmohamedhafez.com"),
   title: {
-    default: "Mohamed Hafez — Full Stack Developer",
+    default: siteTitle,
     template: "%s | Mohamed Hafez",
   },
-  description:
-    "Full Stack JavaScript Developer with 8+ years of enterprise systems engineering. React, Next.js, Node.js, TypeScript, AI integrations (OpenAI, Anthropic, DeepSeek), and Hedera blockchain.",
+  description: siteDescription,
   keywords: [
+    "Mohamed Hafez",
     "Full Stack Developer",
+    "Full-Stack Developer",
+    "Systems Engineer",
     "React Developer",
     "Next.js Developer",
     "Node.js",
@@ -30,35 +36,37 @@ export const metadata: Metadata = {
     "OpenAI",
     "Anthropic",
     "Hedera Blockchain",
-    "Systems Engineer",
-    "Mohamed Hafez",
+    "Azure Entra ID",
+    "Microsoft Intune",
+    "Endpoint Management",
     "Lowell MA",
-    "Web Developer",
+    "Web Developer Portfolio",
   ],
   authors: [{ name: "Mohamed Hafez", url: "https://beingmohamedhafez.com" }],
   creator: "Mohamed Hafez",
+  publisher: "Mohamed Hafez",
+  category: "technology",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://beingmohamedhafez.com",
     siteName: "Mohamed Hafez",
-    title: "Mohamed Hafez — Full Stack Developer",
-    description:
-      "Full Stack JavaScript Developer specializing in React, Next.js, Node.js, AI integrations, and Hedera blockchain. 8+ years enterprise systems engineering.",
+    title: siteTitle,
+    description: siteDescription,
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Mohamed Hafez — Full Stack Developer",
+        alt: siteTitle,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohamed Hafez — Full Stack Developer",
+    title: siteTitle,
     description:
-      "Full Stack JavaScript Developer specializing in React, Next.js, Node.js, AI integrations, and Hedera blockchain.",
+      "Full-stack developer and systems engineer — React, Next.js, AI agents, identity, cloud, and production ops.",
     creator: "@jamstack_blocks",
     images: ["https://beingmohamedhafez.com/opengraph-image.png"],
   },

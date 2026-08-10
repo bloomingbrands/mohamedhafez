@@ -7,36 +7,70 @@ import { FlipLinks } from "@/components/ui/flip-links";
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Mohamed Hafez",
-  url: "https://beingmohamedhafez.com",
-  email: "mohamedhafez@outlook.com",
-  jobTitle: "Full Stack JavaScript Developer",
-  description:
-    "Full Stack JavaScript Developer with 8+ years of enterprise systems engineering experience. Specializing in React, Next.js, Node.js, AI integrations, and Hedera blockchain.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Lowell",
-    addressRegion: "MA",
-    addressCountry: "US",
-  },
-  sameAs: [
-    "https://www.linkedin.com/in/mnhafez1978",
-    "https://github.com/mhafez1978",
-    "https://x.com/jamstack_blocks",
-  ],
-  knowsAbout: [
-    "React",
-    "Next.js",
-    "Node.js",
-    "TypeScript",
-    "AI Integrations",
-    "OpenAI",
-    "Anthropic",
-    "Hedera Blockchain",
-    "AWS",
-    "Azure",
-    "Systems Engineering",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://beingmohamedhafez.com/#website",
+      url: "https://beingmohamedhafez.com",
+      name: "Mohamed Hafez",
+      description:
+        "Portfolio of Mohamed Hafez — full-stack developer and systems engineer.",
+      inLanguage: "en-US",
+      publisher: { "@id": "https://beingmohamedhafez.com/#person" },
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://beingmohamedhafez.com/#profile",
+      url: "https://beingmohamedhafez.com",
+      name: "Mohamed Hafez — Full-Stack Developer & Systems Engineer",
+      isPartOf: { "@id": "https://beingmohamedhafez.com/#website" },
+      mainEntity: { "@id": "https://beingmohamedhafez.com/#person" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://beingmohamedhafez.com/#person",
+      name: "Mohamed Hafez",
+      url: "https://beingmohamedhafez.com",
+      email: "mohamedhafez@outlook.com",
+      jobTitle: ["Full-Stack Developer", "Systems Engineer"],
+      description:
+        "Full-stack developer and systems engineer shipping React/Next.js products, AI integrations, and enterprise identity, cloud, and endpoint solutions.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lowell",
+        addressRegion: "MA",
+        addressCountry: "US",
+      },
+      sameAs: [
+        "https://www.linkedin.com/in/mnhafez1978",
+        "https://github.com/mhafez1978",
+        "https://x.com/jamstack_blocks",
+      ],
+      knowsAbout: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "TypeScript",
+        "AI Integrations",
+        "OpenAI",
+        "Anthropic",
+        "Hedera Blockchain",
+        "AWS",
+        "Azure",
+        "Microsoft Intune",
+        "Entra ID",
+        "Endpoint Management",
+        "Systems Engineering",
+        "Docker",
+        "Coolify",
+      ],
+      alumniOf: [
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Framingham State University",
+        },
+      ],
+    },
   ],
 };
 
