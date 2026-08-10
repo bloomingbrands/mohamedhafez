@@ -1,6 +1,6 @@
 # Mohamed Hafez — Portfolio
 
-Personal portfolio website built with Next.js, showcasing my work as a Full Stack JavaScript Developer with 8+ years of enterprise systems engineering experience.
+Personal portfolio for Mohamed Hafez — full-stack developer and systems engineer — built with Next.js.
 
 ## Live Site
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
@@ -11,9 +12,10 @@ const projects = [
     domain: "ontargeterp.netlify.app",
     url: "https://ontargeterp.netlify.app",
     description:
-      "AI-powered ERP platform — orders, invoices, and transactions anchored to the Hedera blockchain. Immutable records. No manipulation. Integrates OpenAI, Anthropic, and DeepSeek for intelligent front-store generation.",
+      "AI-assisted ERP for orders, invoicing, catalog, and storefront generation — with transaction records anchored to Hedera for tamper-evident audit trails.",
     tags: ["Next.js", "Prisma", "MySQL", "Hedera", "OpenAI", "Anthropic", "DeepSeek", "JWT"],
     status: "live" as const,
+    screenshot: "/projects/ontarget-brands.png",
   },
   {
     index: "02",
@@ -21,9 +23,10 @@ const projects = [
     domain: "blooming-brands.com",
     url: "https://blooming-brands.com",
     description:
-      "Brand identity and digital presence for growing businesses. Fast, responsive, built to convert.",
-    tags: ["Next.js", "TailwindCSS", "Framer Motion"],
+      "My studio site — client web work, SaaS tooling, and AI-assisted experiences built and hosted end to end.",
+    tags: ["Next.js", "TailwindCSS", "Framer Motion", "Coolify"],
     status: "live" as const,
+    screenshot: "/projects/blooming-brands.png",
   },
   {
     index: "03",
@@ -31,28 +34,31 @@ const projects = [
     domain: "nodesunlimited.com",
     url: "https://nodesunlimited.com",
     description:
-      "Node.js development agency — scalable APIs, backend systems, and full-stack web applications.",
+      "Infrastructure-as-code positioning for a Node.js shop — hosting, domains, and layered services with a dark, product-led marketing site.",
     tags: ["Next.js", "Node.js", "Express", "TypeScript", "REST APIs"],
     status: "live" as const,
+    screenshot: "/projects/nodes-unlimited.png",
   },
   {
     index: "04",
     name: "Prestige Worldwide Limos",
-    domain: "glittering-biscuit-572c74.netlify.app",
-    url: "https://glittering-biscuit-572c74.netlify.app",
+    domain: "www.prestigeworldwidelimos.com",
+    url: "https://www.prestigeworldwidelimos.com",
     description:
-      "Luxury limousine company website — elegant design built to convert visitors into bookings. Fast, responsive, and built to reflect the premium brand experience.",
+      "Luxury transportation marketing site for Charlotte — fleet storytelling, quote flow, and a premium brand experience built to convert bookings.",
     tags: ["Next.js", "TailwindCSS", "Framer Motion"],
     status: "live" as const,
+    screenshot: "/projects/prestige-worldwide-limos.png",
   },
   {
     index: "05",
     name: "Sword Circle Pen",
-    domain: "swordcirclepen.com",
-    url: "https://swordcirclepen.com",
-    description: "Something new. Currently being built.",
+    domain: "scp.blooming-brands.com",
+    url: "https://scp.blooming-brands.com/",
+    description: "New product in progress — more soon.",
     tags: ["Next.js", "React", "TypeScript"],
     status: "in-progress" as const,
+    screenshot: null,
   },
 ];
 
@@ -128,10 +134,9 @@ function ProjectRow({
         {project.index}
       </span>
 
-      <div className="relative flex items-start justify-between gap-6 md:items-center">
+      <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
         {/* Left: name + meta */}
         <div className="min-w-0 flex-1">
-          {/* Name row */}
           <div className="flex flex-wrap items-center gap-3 md:gap-4">
             <h3 className="text-2xl font-bold text-white/75 transition-colors duration-200 group-hover:text-white sm:text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
               {project.name}
@@ -144,12 +149,10 @@ function ProjectRow({
             )}
           </div>
 
-          {/* Description */}
           <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-white/40 md:text-base">
             {project.description}
           </p>
 
-          {/* Tags */}
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1">
             {project.tags.map((tag, ti) => (
               <span key={tag} className="flex items-center gap-3">
@@ -162,21 +165,48 @@ function ProjectRow({
               </span>
             ))}
           </div>
+
+          {isLive && (
+            <div className="mt-5 flex items-center gap-2 sm:hidden">
+              <span className="text-xs font-mono text-white/25">{project.domain}</span>
+              <ArrowUpRight className="h-4 w-4 text-white/20" />
+            </div>
+          )}
         </div>
 
-        {/* Right: domain + arrow */}
-        {isLive ? (
-          <div className="hidden shrink-0 flex-col items-end gap-1 sm:flex">
-            <span className="text-xs font-mono text-white/25 transition-colors duration-200 group-hover:text-white/50">
-              {project.domain}
-            </span>
-            <ArrowUpRight className="h-5 w-5 text-white/20 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white/60" />
-          </div>
-        ) : (
-          <div className="hidden shrink-0 sm:block">
-            <span className="text-xs font-mono text-white/20">{project.domain}</span>
-          </div>
-        )}
+        {/* Right: screenshot + domain */}
+        <div className="relative w-full shrink-0 lg:w-[320px] xl:w-[380px]">
+          {project.screenshot ? (
+            <div className="relative aspect-[16/10] w-full overflow-hidden border border-white/10 bg-white/[0.02] transition-all duration-300 group-hover:border-white/25">
+              <Image
+                src={project.screenshot}
+                alt={`${project.name} website screenshot`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 380px"
+                className="object-cover object-top opacity-80 transition-all duration-500 group-hover:scale-[1.02] group-hover:opacity-100"
+              />
+            </div>
+          ) : (
+            <div className="relative flex aspect-[16/10] w-full items-center justify-center border border-dashed border-white/10 bg-white/[0.02]">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-white/20">
+                Preview coming soon
+              </span>
+            </div>
+          )}
+
+          {isLive ? (
+            <div className="mt-3 hidden items-center justify-end gap-2 sm:flex">
+              <span className="text-xs font-mono text-white/25 transition-colors duration-200 group-hover:text-white/50">
+                {project.domain}
+              </span>
+              <ArrowUpRight className="h-4 w-4 text-white/20 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white/60" />
+            </div>
+          ) : (
+            <div className="mt-3 hidden justify-end sm:flex">
+              <span className="text-xs font-mono text-white/20">{project.domain}</span>
+            </div>
+          )}
+        </div>
       </div>
     </motion.div>
   );
