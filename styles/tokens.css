@@ -18,7 +18,7 @@
   --magenta-deep: #b8005f;
   --on-magenta: #ffffff;
 
-  --font: var(--font-franklin), "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+  --font: "Libre Franklin Variable", ui-sans-serif, system-ui, sans-serif;
 
   --head-h: 64px;
   --gutter: clamp(12px, 4.2vw, 80px);
