@@ -98,7 +98,7 @@ export function IndexPanel({ n }: { n: number }) {
       <ul>
         {items.map((it) => (
           <li key={it.name}>
-            <a href={it.href} target="_blank" rel="noreferrer">
+            <a href={it.href} target={it.href.startsWith("http") || it.href.endsWith(".pdf") ? "_blank" : undefined} rel="noreferrer">
               <span className="ix-name">{it.name}</span>
               <span className="ix-lead" aria-hidden />
               <span className="ix-year num">{it.year}</span>
@@ -118,7 +118,7 @@ export function IndexPanel({ n }: { n: number }) {
           <span className="ix-count-label">{index.countLabel}</span>
         </p>
         {list(index.made, "Made")}
-        {list(index.talks, "Written and said")}
+        {list(index.talks, "Connect")}
       </div>
     </Fold>
   );
