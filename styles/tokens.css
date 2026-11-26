@@ -1,0 +1,39 @@
+/* The sheet is printed in two inks on white stock, and lies on a dark table.
+   Black carries the words; magenta carries every number and the outside of the sheet. */
+:root {
+  --table: #141416;
+  --table-lit: #26262a;
+  --table-ink: #a3a3a8;
+  --table-ink-2: #6d6d73;
+
+  --paper: #f4f4f1;
+  --paper-2: #e9e9e5;
+  --ink: #161616;
+  --ink-2: #57575a;
+  --ink-3: #8b8b8d;
+  --rule: rgb(22 22 22 / 0.12);
+
+  /* Process magenta: the outside of the sheet, and the second ink inside it. */
+  --magenta: #e2007a;
+  --magenta-deep: #b8005f;
+  --on-magenta: #ffffff;
+
+  --font: var(--font-franklin), "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+
+  --head-h: 64px;
+  --gutter: clamp(12px, 4.2vw, 80px);
+  --sheet-w: min(1280px, calc(100vw - 2 * var(--gutter)));
+  --gate-pad: clamp(14px, 3.6svh, 44px);
+  --spread-h: clamp(560px, calc(100svh - var(--head-h) - 2 * var(--gate-pad)), calc(var(--sheet-w) / 1.34));
+  --stage-h: max(100svh, calc(var(--head-h) + var(--spread-h) + 2 * var(--gate-pad)));
+  --gate-gap: calc((var(--stage-h) - var(--head-h) - var(--spread-h)) / 2);
+  --pad: clamp(18px, 2.6vw, 36px);
+}
+
+@media (max-width: 760px), (max-aspect-ratio: 9/10) {
+  :root {
+    --head-h: 56px;
+    --gate-pad: 16px;
+    --spread-h: clamp(600px, calc(100svh - var(--head-h) - 2 * var(--gate-pad)), 1000px);
+  }
+}

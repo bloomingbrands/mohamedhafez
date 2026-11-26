@@ -1,0 +1,71 @@
+/* Print: the sheet lies flat, one panel per page, on white. */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  body::before,
+  body::after,
+  .hero-head,
+  .hero-hint,
+  .finale,
+  .fp-shade,
+  .g-a,
+  .g-b,
+  .g-center,
+  .g-shadow,
+  .g-stack,
+  .cc-ground {
+    display: none !important;
+  }
+
+  .hero,
+  .hero-stage {
+    position: static;
+    height: auto;
+    margin: 0;
+  }
+
+  .gate-world {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 170mm;
+    perspective: none;
+  }
+
+  .g-real {
+    opacity: 1 !important;
+  }
+
+  .strip {
+    width: 100%;
+    margin: 0;
+  }
+
+  .fp {
+    clip-path: none;
+    break-before: page;
+    break-inside: avoid;
+  }
+
+  .fp-in {
+    transform: none !important;
+    box-shadow: none;
+  }
+
+  .fp-in::after,
+  .inside::after {
+    display: none;
+  }
+
+  .colophon {
+    color: #555;
+    width: 100%;
+  }
+}

@@ -1,0 +1,690 @@
+/* ───────── First screen: the folded sheet on the table ───────── */
+
+.hero {
+  position: relative;
+  height: calc(var(--stage-h) + 135svh);
+  margin-bottom: calc(-1 * var(--gate-gap));
+}
+
+.hero[data-still] {
+  height: var(--stage-h);
+}
+
+.hero-stage {
+  position: sticky;
+  top: 0;
+  height: var(--stage-h);
+}
+
+.hero-head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: var(--sheet-w);
+  height: var(--head-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--table-ink);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.hero-mast {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.hero-mast b {
+  color: #ececee;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.hero-mast span {
+  color: var(--table-ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.hero-nav a,
+.hero-nav button {
+  appearance: none;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ececee;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background-color 160ms ease;
+}
+
+.hero-nav a:hover,
+.hero-nav button:hover {
+  background: #2a2a2e;
+}
+
+.hero-nav a:active,
+.hero-nav button:active {
+  background: #333338;
+}
+
+.hero-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(6px, calc(var(--gate-gap) / 2 - 9px));
+  text-align: center;
+  font-size: 12px;
+  color: var(--table-ink-2);
+  pointer-events: none;
+}
+
+.gate-world {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  top: calc(var(--head-h) + var(--gate-gap));
+  width: var(--sheet-w);
+  height: var(--spread-h);
+  perspective: 2400px;
+  perspective-origin: 50% 50%;
+}
+
+/* ───────── The gatefold ───────── */
+
+.g-sheet {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.g-panel {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.g-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.g-slice {
+  position: absolute;
+  container-type: size;
+}
+
+.g-shade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.g-center .g-shade {
+  opacity: 0.82;
+}
+
+.g-real {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.g-shadow {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+  transform: translateZ(-6px) translateX(25%) scaleX(0.5);
+  box-shadow:
+    0 34px 70px -18px rgb(0 0 0 / 0.75),
+    0 4px 10px rgb(0 0 0 / 0.5);
+  pointer-events: none;
+}
+
+.g-stack {
+  position: absolute;
+  transform: translateZ(-3px);
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.g-stack i {
+  position: absolute;
+  inset: 0;
+}
+
+.g-stack i:nth-child(1) {
+  background: var(--magenta-deep);
+  transform: translate3d(1px, 3px, -1px);
+}
+
+.g-stack i:nth-child(2) {
+  background: #cfcfca;
+  transform: translate3d(2px, 6px, -2px);
+}
+
+.g-stack i:nth-child(3) {
+  background: #9a0052;
+  transform: translate3d(3px, 9px, -3px);
+}
+
+/* Wide screens: the flaps open sideways. */
+.g-center {
+  left: 25%;
+  width: 50%;
+  top: 0;
+  height: 100%;
+}
+
+.g-stack {
+  left: 25%;
+  width: 50%;
+  top: 0;
+  height: 100%;
+}
+
+.g-a {
+  left: 0;
+  width: 25%;
+  top: 0;
+  height: 100%;
+  transform-origin: 100% 50%;
+  transform: translateZ(2px) rotateY(180deg);
+}
+
+.g-b {
+  left: 75%;
+  width: 25%;
+  top: 0;
+  height: 100%;
+  transform-origin: 0 50%;
+  transform: translateZ(3px) rotateY(-180deg);
+}
+
+.g-back {
+  transform: rotateY(180deg);
+}
+
+.g-slice {
+  top: 0;
+  height: 100%;
+}
+
+.g-a .g-front .g-slice {
+  left: 0;
+  width: 400%;
+}
+
+.g-center .g-slice {
+  left: -50%;
+  width: 200%;
+}
+
+.g-b .g-front .g-slice {
+  left: -300%;
+  width: 400%;
+}
+
+.g-a .g-back .g-slice {
+  left: 0;
+  width: 200%;
+}
+
+.g-b .g-back .g-slice {
+  left: -100%;
+  width: 200%;
+}
+
+/* Where the two flaps meet, each edge catches a little shade. */
+.g-back::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  pointer-events: none;
+}
+
+.g-a .g-back::after {
+  right: 0;
+  background: linear-gradient(90deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.16));
+}
+
+.g-b .g-back::after {
+  left: 0;
+  background: linear-gradient(90deg, rgb(255 255 255 / 0.18), rgb(255 255 255 / 0) 3px, rgb(0 0 0 / 0) 100%);
+}
+
+/* Tall screens: the flaps open up and down. */
+@media (max-width: 760px), (max-aspect-ratio: 9/10) {
+  .hero {
+    height: calc(var(--stage-h) + 120svh);
+  }
+
+  .hero-mast span {
+    display: none;
+  }
+
+  .g-center,
+  .g-stack {
+    left: 0;
+    width: 100%;
+    top: 25%;
+    height: 50%;
+  }
+
+  .g-a {
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 25%;
+    transform-origin: 50% 100%;
+    transform: translateZ(2px) rotateX(-180deg);
+  }
+
+  .g-b {
+    left: 0;
+    width: 100%;
+    top: 75%;
+    height: 25%;
+    transform-origin: 50% 0;
+    transform: translateZ(3px) rotateX(180deg);
+  }
+
+  .g-back {
+    transform: rotateX(180deg);
+  }
+
+  .g-shadow {
+    transform: translateZ(-6px) translateY(25%) scaleY(0.5);
+  }
+
+  .g-slice {
+    left: 0 !important;
+    width: 100% !important;
+  }
+
+  .g-a .g-front .g-slice {
+    top: 0;
+    height: 400%;
+  }
+
+  .g-center .g-slice {
+    top: -50%;
+    height: 200%;
+  }
+
+  .g-b .g-front .g-slice {
+    top: -300%;
+    height: 400%;
+  }
+
+  .g-a .g-back .g-slice {
+    top: 0;
+    height: 200%;
+  }
+
+  .g-b .g-back .g-slice {
+    top: -100%;
+    height: 200%;
+  }
+
+  .g-back::after {
+    top: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 10px;
+  }
+
+  .g-a .g-back::after {
+    bottom: 0;
+    background: linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.16));
+  }
+
+  .g-b .g-back::after {
+    top: 0;
+    bottom: auto;
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.18), rgb(255 255 255 / 0) 3px);
+  }
+}
+
+/* ───────── The cover (outside of the sheet) ───────── */
+
+.cover {
+  --cpad: clamp(18px, 5.6cqw, 40px);
+  position: absolute;
+  inset: 0;
+  padding: var(--cpad);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* The table lamp catches the top of the cover. */
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(170deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0) 45%, rgb(0 0 0 / 0.08));
+}
+
+.cover-name {
+  position: relative;
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  font-size: min(calc((100cqw - 2 * var(--cpad)) / (var(--chars) * 0.6)), 22cqh);
+  margin-left: -0.04em;
+}
+
+.cover-name span {
+  display: block;
+}
+
+.cover-foot {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  font-size: clamp(14px, 2.7cqw, 17px);
+  line-height: 1.35;
+}
+
+.cover-lines span {
+  display: block;
+  font-weight: 600;
+}
+
+.cover-status {
+  opacity: 0.82;
+}
+
+.cover-mail {
+  width: fit-content;
+  font-size: clamp(19px, 4.3cqw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.cover-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.cover-links a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cover-links a::after {
+  content: " ↗";
+}
+
+.cover a:hover {
+  text-decoration-thickness: 3px;
+}
+
+.cover-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ───────── The inside spread ───────── */
+
+.inside {
+  --ipad: clamp(18px, 2.6cqw, 36px);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100%;
+}
+
+/* The sheet keeps its creases once it lies open. */
+.inside::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 0) calc(25% - 18px), rgb(0 0 0 / 0.05) calc(25% - 1px), rgb(255 255 255 / 0.45) 25%, rgb(255 255 255 / 0) calc(25% + 6px)),
+    linear-gradient(90deg, rgb(0 0 0 / 0) 50%, rgb(255 255 255 / 0.35) 50%, rgb(0 0 0 / 0.045) calc(50% + 1px), rgb(0 0 0 / 0) calc(50% + 16px)),
+    linear-gradient(90deg, rgb(0 0 0 / 0) calc(75% - 18px), rgb(0 0 0 / 0.05) calc(75% - 1px), rgb(255 255 255 / 0.45) 75%, rgb(255 255 255 / 0) calc(75% + 6px));
+}
+
+.in-photo {
+  grid-column: 1;
+  position: relative;
+  overflow: hidden;
+  background: #cfcfcb;
+}
+
+.in-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 30%;
+  user-select: none;
+}
+
+.in-main {
+  grid-column: 2 / span 2;
+  position: relative;
+  padding: var(--ipad);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.in-name {
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.in-name span {
+  display: block;
+}
+
+.in-role {
+  font-weight: 450;
+  color: var(--ink-2);
+}
+
+.in-head {
+  margin-top: clamp(24px, 6cqh, 72px);
+  font-size: clamp(32px, 5.4cqw, 74px);
+  line-height: 0.98;
+  font-weight: 750;
+  letter-spacing: -0.034em;
+  text-wrap: balance;
+  max-width: 11.5em;
+}
+
+.in-body {
+  margin-top: auto;
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ipad);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.in-folio {
+  position: absolute;
+  top: var(--ipad);
+  right: var(--ipad);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.in-contents {
+  grid-column: 4;
+  padding: var(--ipad);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.in-label {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.in-contents ol {
+  margin-top: auto;
+  display: grid;
+  gap: 2px;
+}
+
+.in-contents a {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  column-gap: 6px;
+  align-items: baseline;
+  padding: 9px 10px;
+  margin-inline: -10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.in-contents a:hover {
+  background: var(--paper-2);
+}
+
+.in-contents .num {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.in-item {
+  font-size: clamp(17px, 1.7cqw, 21px);
+  font-weight: 650;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
+}
+
+.in-sub {
+  grid-column: 2;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 760px), (max-aspect-ratio: 9/10) {
+  .inside {
+    --ipad: 18px;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 50% 25%;
+  }
+
+  .inside::after {
+    background:
+      linear-gradient(180deg, rgb(0 0 0 / 0) calc(25% - 16px), rgb(0 0 0 / 0.05) calc(25% - 1px), rgb(255 255 255 / 0.45) 25%, rgb(255 255 255 / 0) calc(25% + 6px)),
+      linear-gradient(180deg, rgb(0 0 0 / 0) 50%, rgb(255 255 255 / 0.35) 50%, rgb(0 0 0 / 0.045) calc(50% + 1px), rgb(0 0 0 / 0) calc(50% + 14px)),
+      linear-gradient(180deg, rgb(0 0 0 / 0) calc(75% - 16px), rgb(0 0 0 / 0.05) calc(75% - 1px), rgb(255 255 255 / 0.45) 75%, rgb(255 255 255 / 0) calc(75% + 6px));
+  }
+
+  .in-photo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .in-photo img {
+    object-position: 40% 22%;
+  }
+
+  .in-main {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .in-name {
+    font-size: 14px;
+  }
+
+  .in-head {
+    margin-top: clamp(14px, 4cqh, 34px);
+    font-size: clamp(26px, 8.4cqw, 62px);
+  }
+
+  .in-body {
+    grid-template-columns: 100%;
+    gap: 8px;
+    font-size: clamp(14px, 2.2cqw, 17px);
+    line-height: 1.45;
+  }
+
+  .in-body p + p {
+    display: none;
+  }
+
+  .in-contents {
+    grid-column: 1;
+    grid-row: 3;
+    padding-top: 14px;
+  }
+
+  .in-label {
+    font-size: 13px;
+  }
+
+  .in-contents ol {
+    margin-top: 6px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+    row-gap: 0;
+  }
+
+  .in-contents a {
+    grid-template-columns: 26px 1fr;
+    padding: 5px 8px;
+    margin-inline: -8px;
+  }
+
+  .in-contents .num {
+    font-size: 13px;
+  }
+
+  .in-item {
+    font-size: clamp(15px, 2.6cqw, 20px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .in-sub {
+    display: none;
+  }
+}
