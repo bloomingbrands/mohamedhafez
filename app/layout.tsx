@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
-import { ThemeProvider } from "./provider";
-
 
 export const metadata: Metadata = {
-  title: "Mohamed's Portfolio",
-  description: "Modern & Minimal NextJS Portfolio",
+  title: "Mohamed Hafez — Web Developer & Cloud Systems Engineer",
+  description:
+    "Mohamed Hafez builds scalable web apps, cloud systems, and digital experiences. Explore selected work, experience, and resume.",
+  metadataBase: new URL("https://beingmohamedhafez.com"),
 };
 
 export default function RootLayout({
@@ -15,20 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* <link rel="icon" href="/jsm-logo.png" sizes="any" /> */}
-      </head>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
