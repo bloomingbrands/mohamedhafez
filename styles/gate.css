@@ -90,7 +90,7 @@
   bottom: max(6px, calc(var(--gate-gap) / 2 - 9px));
   text-align: center;
   font-size: 12px;
-  color: var(--table-ink-2);
+  color: var(--table-ink);
   pointer-events: none;
 }
 
@@ -678,10 +678,9 @@
   }
 
   .in-item {
-    font-size: clamp(15px, 2.6cqw, 20px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 13px;
+    line-height: 1.12;
+    white-space: normal;
   }
 
   .in-sub {
