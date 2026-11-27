@@ -551,6 +551,13 @@
   letter-spacing: -0.034em;
   text-wrap: balance;
   max-width: 11.5em;
+  clip-path: inset(0 0 var(--headline-cover, 100%) 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .in-head {
+    clip-path: none;
+  }
 }
 
 .in-body {

@@ -48,6 +48,8 @@ function shadeFor(angle: number) {
  * The second flap leads a little, the way a hand opens a gatefold.
  */
 export function drive(parts: GateParts, p: number, tall: boolean, ajar = 0) {
+  const reveal = clamp((p - 0.12) / 0.7);
+  parts.root.style.setProperty("--headline-cover", `${((1 - reveal) * 100).toFixed(2)}%`);
   const pb = easeInOut(clamp(p / 0.82));
   const pa = easeInOut(clamp((p - 0.18) / 0.82));
   // `ajar` lifts the shut flaps a few degrees off the centre panel.
