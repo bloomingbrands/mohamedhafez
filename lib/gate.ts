@@ -90,6 +90,8 @@ export function drive(parts: GateParts, p: number, tall: boolean, ajar = 0) {
   if (parts.real) {
     parts.real.style.opacity = open ? "1" : "0";
     parts.real.style.pointerEvents = open ? "auto" : "none";
+    const openValue = open ? "true" : "false";
+    if (parts.real.dataset.open !== openValue) parts.real.dataset.open = openValue;
   }
   const panels = parts.real && open ? "hidden" : "visible";
   parts.a.style.visibility = panels;

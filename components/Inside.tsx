@@ -15,14 +15,14 @@ export default function Inside({ copy = false }: { copy?: boolean }) {
   const contents = [
     ...work.map((item, i) => ({ id: item.slug, n: folio(i + 2), label: item.name, sub: item.years })),
     { id: "away", n: folio(work.length + 2), label: away.title, sub: `${away.photos.length} photos` },
-    { id: "index", n: folio(work.length + 3), label: index.title, sub: `${index.count} more` },
+    { id: "index", n: folio(work.length + 3), label: index.title, sub: "Visitor count & more" },
   ];
   return (
     <div className="inside paper" aria-hidden={copy || undefined}>
       <figure className="in-photo">
         <div className="in-photo-light" aria-hidden="true" />
         {!copy && <PortraitBeams />}
-        <Image src={asset(person.portrait)} alt={copy ? "" : person.portraitAlt} width={880} height={1178} draggable={false} />
+        <Image src={asset(person.portrait)} alt={copy ? "" : person.portraitAlt} width={880} height={1178} sizes="(max-width: 700px) 100vw, 25vw" draggable={false} />
       </figure>
 
       <div className="in-main">
