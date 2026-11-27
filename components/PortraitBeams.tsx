@@ -20,6 +20,7 @@ export default function PortraitBeams() {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
+    const spread = canvas.closest<HTMLElement>(".g-real");
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let width = 0;
@@ -90,7 +91,7 @@ export default function PortraitBeams() {
     const sync = () => {
       cancelAnimationFrame(frame);
       last = 0;
-      if (visible && !document.hidden && !reduceMotion.matches && width && height) {
+      if (visible && spread?.dataset.open === "true" && !document.hidden && !reduceMotion.matches && width && height) {
         frame = requestAnimationFrame(animate);
       } else if (width && height) {
         draw(0);
@@ -104,12 +105,15 @@ export default function PortraitBeams() {
       sync();
     });
     observer.observe(canvas);
+    const openObserver = new MutationObserver(sync);
+    if (spread) openObserver.observe(spread, { attributes: true, attributeFilter: ["data-open"] });
     document.addEventListener("visibilitychange", sync);
     reduceMotion.addEventListener("change", sync);
     return () => {
       cancelAnimationFrame(frame);
       resize.disconnect();
       observer.disconnect();
+      openObserver.disconnect();
       document.removeEventListener("visibilitychange", sync);
       reduceMotion.removeEventListener("change", sync);
     };

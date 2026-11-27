@@ -3,6 +3,7 @@ import Image from "next/image";
 import { asset } from "@/lib/urls";
 import { folio } from "@/lib/folio";
 import Concertina from "./Concertina";
+import VisitorCount from "./VisitorCount";
 
 /** Every panel opens the same way: its folio, its name, and a line of facts. */
 export function PanelHead({ n, title, meta, as: Tag = "h2" }: { n: number; title: string; meta: readonly string[]; as?: "h2" | "div" }) {
@@ -59,6 +60,7 @@ export function WorkPanel({ item, n }: { item: WorkItem; n: number }) {
       width={img.width}
       height={img.height}
       loading="lazy"
+      sizes="(max-width: 700px) 100vw, 75vw"
       decoding="async"
       draggable={false}
     />
@@ -114,7 +116,7 @@ export function IndexPanel({ n }: { n: number }) {
       <PanelHead n={n} title={index.title} meta={[index.note]} />
       <div className="ix">
         <p className="ix-count">
-          <span className="num">{index.count}</span>
+          <VisitorCount />
           <span className="ix-count-label">{index.countLabel}</span>
         </p>
         {list(index.made, "Made")}

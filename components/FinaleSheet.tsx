@@ -3,6 +3,7 @@ import Image from "next/image";
 import { asset } from "@/lib/urls";
 import GateSheet from "./GateSheet";
 import { PanelHead } from "./Panels";
+import VisitorCount from "./VisitorCount";
 
 /** Small copies of every panel below the spread, nested so each hangs from the one above. */
 function Chain({ panels, i = 0 }: { panels: React.ReactNode[]; i?: number }) {
@@ -25,7 +26,7 @@ function miniPanels() {
       <PanelHead as="div" n={i + 2} title={item.name} meta={[item.role, item.years]} />
       <div className="mini-pics">
         {item.images.map((img) => (
-          <Image key={img.src} src={asset(img.src)} alt="" width={img.width} height={img.height} loading="lazy" draggable={false} />
+          <Image key={img.src} src={asset(img.src)} alt="" width={img.width} height={img.height} sizes="(max-width: 700px) 50vw, 20vw" loading="lazy" draggable={false} />
         ))}
       </div>
     </div>
@@ -35,7 +36,7 @@ function miniPanels() {
       <PanelHead as="div" n={work.length + 2} title={away.title} meta={[away.note]} />
       <div className="mini-pics">
         {away.photos.map((p) => (
-          <Image key={p.src} src={asset(p.src)} alt="" width={800} height={1000} loading="lazy" draggable={false} />
+          <Image key={p.src} src={asset(p.src)} alt="" width={800} height={1000} sizes="(max-width: 700px) 30vw, 12vw" loading="lazy" draggable={false} />
         ))}
       </div>
     </div>,
@@ -44,7 +45,7 @@ function miniPanels() {
     <div className="mini mini-index" key="index">
       <PanelHead as="div" n={work.length + 3} title={index.title} meta={[index.note]} />
       <div className="mini-ix">
-        <span className="num">{index.count}</span>
+        <VisitorCount />
         <ul>
           {[...index.made, ...index.talks].map((it) => (
             <li key={it.name}>
