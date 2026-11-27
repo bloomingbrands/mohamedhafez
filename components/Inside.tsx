@@ -2,6 +2,7 @@ import site from "@/site.config";
 import Image from "next/image";
 import { asset } from "@/lib/urls";
 import { folio } from "@/lib/folio";
+import PortraitBeams from "./PortraitBeams";
 
 /**
  * The inside of the gatefold: the spread you see once the cover opens.
@@ -19,6 +20,8 @@ export default function Inside({ copy = false }: { copy?: boolean }) {
   return (
     <div className="inside paper" aria-hidden={copy || undefined}>
       <figure className="in-photo">
+        <div className="in-photo-light" aria-hidden="true" />
+        {!copy && <PortraitBeams />}
         <Image src={asset(person.portrait)} alt={copy ? "" : person.portraitAlt} width={880} height={1178} draggable={false} />
       </figure>
 
