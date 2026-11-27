@@ -8,8 +8,32 @@ import { AwayPanel, IndexPanel, WorkPanel } from "@/components/Panels";
 
 export default function Page() {
   const n = site.work.length;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${site.person.url}/#person`,
+        name: site.person.name,
+        url: site.person.url,
+        image: `${site.person.url}${site.person.portrait}`,
+        jobTitle: site.person.role,
+        homeLocation: { "@type": "Place", name: site.person.city },
+        sameAs: site.cover.links.filter((link) => link.href.startsWith("https://")).map((link) => link.href),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${site.person.url}/#website`,
+        name: site.person.name,
+        url: site.person.url,
+        description: site.person.description,
+        author: { "@id": `${site.person.url}/#person` },
+      },
+    ],
+  };
   return (
     <main id="top">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <Hero>
         <GateSheet />
       </Hero>

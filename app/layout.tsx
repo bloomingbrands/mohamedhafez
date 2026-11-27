@@ -1,11 +1,30 @@
 import type { Metadata } from "next";
+import site from "@/site.config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mohamed Hafez — Web Developer & Cloud Systems Engineer",
-  description:
-    "Mohamed Hafez builds scalable web apps, cloud systems, and digital experiences. Explore selected work, experience, and resume.",
-  metadataBase: new URL("https://beingmohamedhafez.com"),
+  metadataBase: new URL(site.person.url),
+  title: site.person.title,
+  description: site.person.description,
+  applicationName: "Mohamed Hafez Portfolio",
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/rss.xml" },
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Mohamed Hafez",
+    title: site.person.title,
+    description: site.person.description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.person.title,
+    description: site.person.description,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

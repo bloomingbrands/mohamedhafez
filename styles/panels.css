@@ -291,7 +291,7 @@
   grid-row: 2;
   aspect-ratio: 1.6;
   margin-top: 6px;
-  background: #0d0e10;
+  background: var(--paper-2);
 }
 
 .work-dark .pi img {
