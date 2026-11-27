@@ -203,6 +203,10 @@
   object-position: left top;
 }
 
+#five-star-home-tech .pi {
+  aspect-ratio: 4 / 3;
+}
+
 /* Three screens standing on the bottom edge, cut by the trim. */
 .work-phones .pt {
   grid-column: 4;
